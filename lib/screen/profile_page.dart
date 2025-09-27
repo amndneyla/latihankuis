@@ -28,8 +28,7 @@ class ProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 30),
             Text(
-              "Halo! Ini halaman profile sederhana.\n"
-              "Kamu bisa tambahkan info lain di sini.",
+              "Halo! Ini halaman profile sederhana.\n",
               textAlign: TextAlign.center,
             ),
           ],

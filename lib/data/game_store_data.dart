@@ -17,7 +17,7 @@ List<GameStore> gameList = [
     reviewCount: '81744',
     linkStore:
         'https://store.steampowered.com/app/534380/Dying_Light_2_Stay_Human/',
-  ),//o
+  ), //o
   GameStore(
     name: 'Goat Simulator',
     releaseDate: '2 Apr, 2014',

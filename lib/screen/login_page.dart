@@ -18,7 +18,12 @@ class _LoginPageState extends State<LoginPage> {
         appBar: AppBar(title: Text("Login Page")),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [FlutterLogo(size: 150,),_usernameField(), _passwordField(), _loginButton(context)],
+          children: [
+            FlutterLogo(size: 150),
+            _usernameField(),
+            _passwordField(),
+            _loginButton(context),
+          ],
         ),
       ),
     );
@@ -30,10 +35,7 @@ class _LoginPageState extends State<LoginPage> {
       child: TextFormField(
         // enabled: true,
         controller: usernameC,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold
-        ),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         decoration: InputDecoration(
           hintText: "Username. . .",
           hintStyle: TextStyle(
@@ -57,10 +59,7 @@ class _LoginPageState extends State<LoginPage> {
         enabled: true,
         obscureText: true,
         controller: passwordC,
-         style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold
-        ),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         decoration: InputDecoration(
           hintText: "Password. . .",
           hintStyle: TextStyle(
@@ -79,10 +78,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _loginButton(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 20, 
-        vertical: 10
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         onPressed: () {
@@ -93,50 +89,46 @@ class _LoginPageState extends State<LoginPage> {
           foregroundColor: Colors.white,
           backgroundColor: Colors.cyan,
         ),
-        child: Text("LOGIN", 
-        style: TextStyle(
-          fontWeight: FontWeight.bold
-          ),
-        ),
+        child: Text("LOGIN", style: TextStyle(fontWeight: FontWeight.bold)),
       ),
     );
   }
 
-  void _login(){
+  void _login() {
     String text = "", username, password;
-      username = usernameC.text.trim();
-      password = passwordC.text.trim();
-      // print("Username : $username");
-      // print("Password : $password");
-      if(username == "mobile" && password == "mobile123"){
-        //login berhasil
-        setState(() {
-          text = "Login Berhasil!";
-          isLoginSuccess = true;
-        });
-        Navigator.pushReplacement(
-          context,
-         MaterialPageRoute(builder: (context){
-          return HomePage(username: username,);
-        }));
-      }else{
-        // login gagal
-        setState(() {
-          text = "Login Gagal";
-          isLoginSuccess = false;
-        });
-      }
-
-      SnackBar snackBar = SnackBar(
-        backgroundColor: (isLoginSuccess) ? Colors.green : Colors.red,
-        content: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold
-          ),
-        )
+    username = usernameC.text.trim();
+    password = passwordC.text.trim();
+    // print("Username : $username");
+    // print("Password : $password");
+    if (username == "mobile" && password == "mobile123") {
+      //login berhasil
+      setState(() {
+        text = "Login Berhasil!";
+        isLoginSuccess = true;
+      });
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return HomePage(username: username);
+          },
+        ),
       );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } else {
+      // login gagal
+      setState(() {
+        text = "Login Gagal";
+        isLoginSuccess = false;
+      });
+    }
+
+    SnackBar snackBar = SnackBar(
+      backgroundColor: (isLoginSuccess) ? Colors.green : Colors.red,
+      content: Text(
+        text,
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

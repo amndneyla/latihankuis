@@ -1,14 +1,17 @@
-name: latihankuismobile1
+name: olah_data
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.9.2
+  sdk: ^3.9.0
 
 dependencies:
   flutter:
     sdk: flutter
+
+  # Tambahkan ini untuk bisa buka link
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:
